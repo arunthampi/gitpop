@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+export APP=${1:?"app name is required"}
+BUILD_DIR=./build
+
+$(BUILD_DIR)/$(APP)

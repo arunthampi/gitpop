@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+export APP=${1:?"app name is required"}
+BUILD_DIR=./build
+
+rm -f "$BUILD_DIR/$APP"
+mkdir -p "$BUILD_DIR"
+# install only the binary
+godep go install
+BUILD_DIR=$BUILD_DIR bash -c 'cp $GOBIN/$APP $BUILD_DIR/$APP'
